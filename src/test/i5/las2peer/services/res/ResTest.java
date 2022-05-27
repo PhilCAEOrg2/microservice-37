@@ -96,7 +96,9 @@ public class ResTest {
     
     try {
       ClientResponse result = c.sendRequest("GET", mainPath + "/one", "");
-      
+            Assert.assertTrue(result.getHttpCode() == 200);
+      Assert.assertTrue(result.getHttpCode() != 500);
+
       System.out.println("Result of 'test$HTTP_Method_Name$': " + result.getResponse().trim());
     } catch (Exception e) {
       e.printStackTrace();
